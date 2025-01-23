@@ -51,8 +51,14 @@ pointer.addEventListener("click", (event) => {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") {
-    changeSlide({ target: { getAttribute: () => "prev" } });
+    changeSlide(
+      null,
+      selectedSlide === 0 ? slidesItem.children.length - 1 : selectedSlide - 1
+    );
   } else if (event.key === "ArrowRight") {
-    changeSlide({ target: { getAttribute: () => "next" } });
+    changeSlide(
+      null,
+      selectedSlide === slidesItem.children.length - 1 ? 0 : selectedSlide + 1
+    );
   }
 });
