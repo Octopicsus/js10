@@ -4,6 +4,8 @@ let pointer = document.querySelector(".level-points");
 let DEFAULT_ACTION = "next";
 const timerSet = 3000;
 
+const lastItem = slidesItem.children.length - 1;
+
 function changeSlide(event, slideNumber = -1) {
   const buttonAction = !event
     ? DEFAULT_ACTION
@@ -20,7 +22,7 @@ function changeSlide(event, slideNumber = -1) {
   if (slideNumber !== -1) {
     selectedSlide = slideNumber;
   } else {
-    const lastItem = slidesItem.children.length - 1;
+    /* const lastItem = slidesItem.children.length - 1; */
 
     if (buttonAction === "prev") {
       selectedSlide = selectedSlide === 0 ? lastItem : selectedSlide - 1;
@@ -51,14 +53,8 @@ pointer.addEventListener("click", (event) => {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") {
-    changeSlide(
-      null,
-      selectedSlide === 0 ? slidesItem.children.length - 1 : selectedSlide - 1
-    );
+    changeSlide(null, selectedSlide === 0 ? lastItem : selectedSlide - 1);
   } else if (event.key === "ArrowRight") {
-    changeSlide(
-      null,
-      selectedSlide === slidesItem.children.length - 1 ? 0 : selectedSlide + 1
-    );
+    changeSlide(null, selectedSlide === lastItem ? 0 : selectedSlide + 1);
   }
 });
