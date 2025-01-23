@@ -1,0 +1,49 @@
+.slider {
+  width: 500px;
+}
+
+.slides {
+  max-width: 500px;
+  height: 320px;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  max-width: 100%;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.indicator {
+  width: 20px;
+  height: 20px;
+  background: lightgreen;
+  border-radius: 50%;
+}
+
+.indicator.active {
+  background: pink;
+}
